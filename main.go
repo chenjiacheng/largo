@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"largo/bootstrap"
+)
 
 func main() {
-	fmt.Println("hello world")
+	r := gin.New()
+
+	bootstrap.SetupRoute(r)
+
+	err := r.Run()
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
